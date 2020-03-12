@@ -32,7 +32,11 @@
       Returns the previous expression from the list of expressions in the textStr parameter
 
 */
+window.onload = init;
 
+function init(){
+   var calButtons = document.querySelector("calButton");
+}
 
 
 

@@ -5,8 +5,8 @@
    Tutorial 11
    Case Problem 1
 
-   Author: 
-   Date:   
+   Author: yelaina buford
+   Date:   3/11/20
    
    Filename: bw_review.js
 	
@@ -33,15 +33,41 @@
       within textStr
 
 */
+window.onload = init;
+
+function init(){
+   var stars = document.querySelectorAll("span#stars img");
+
+   for(var i = 0; i < stars.length; i++){
+      stars[i].style.cursor = "pointer";
+      stars[i].addEventListener("mouseenter", lightStars);
+   }
+   document.addEventListener("keyup", Count);
+}
+
+function lightStars(e){
+   var starNumber = e.target.alt;
+   var stars = document.querySelectorAll("span#stars img");
+
+   for(var i = 0; i < starNumber.length; i++){
+      starNumber[i]
+   }
+}
+
+function turnOffStars(e){
+   var stars = document.querySelectorAll("span#stars img");
+   for(var i = 0; i < stars.length; i++){
+      
+   }
+}
+
+function updateCount(){
+
+}
 
 
 
-  
 
-
-  
-  
-  
 /*=================================================================*/
 
 function countCharacters(textStr) {
