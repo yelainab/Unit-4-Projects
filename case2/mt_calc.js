@@ -5,8 +5,8 @@
    Tutorial 11
    Case Problem 2
 
-   Author: 
-   Date:   
+   Author: yelaina buford 
+   Date:   3/12/20
    
    Filename: mt_calc.js
 	
@@ -35,10 +35,36 @@
 window.onload = init;
 
 function init(){
-   var calButtons = document.querySelector("calButton");
+   var calButtons = document.getElementsByClassName("calButton");
+   for(var i = 0; i < calButtons.length; i++){
+      calButtons[i].addEventListener("click", buttonClick);
+   }
+   document.getElementById("calcWindow").addEventListener("keydown", calcKeys);
 }
 
+function buttonClick(e){
+   var calcValue = document.getElementById("calcWindow").value 
+   var calcDecimal = document.getElementById("decimals").value
+   var buttonValue = e.target.value
 
+   switch(buttonValue){
+      case "del":
+         calcValue.value = "";
+         break;
+
+      case "bksp":
+         calcValue.value = eraseChar(calcValue);
+         break;
+
+      case "enter":
+         calcValue.value = " = " + evalEq(calcValue, calcDecimal) + "\n";
+         break;
+
+      case "prev":
+         calcValue.value
+
+   }
+}
 
 
 
