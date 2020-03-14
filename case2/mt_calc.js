@@ -35,37 +35,64 @@
 window.onload = init;
 
 function init(){
-   var calButtons = document.getElementsByClassName("calButton");
-   for(var i = 0; i < calButtons.length; i++){
-      calButtons[i].addEventListener("click", buttonClick);
+   var calcButtons = document.getElementsByClassName("calButton");
+   for(var i = 0; i < calcButtons.length; i++){
+      calcButtons[i].addEventListener('click', buttonClick);
    }
-   document.getElementById("calcWindow").addEventListener("keydown", calcKeys);
+   document.getElementById("calcWindow").addEventListener('keydown', calcKeys);
 }
 
 function buttonClick(e){
-   var calcValue = document.getElementById("calcWindow").value 
-   var calcDecimal = document.getElementById("decimals").value
-   var buttonValue = e.target.value
+   var calcValue = document.getElementById("calcWindow").value; 
+   var calcDecimal = document.getElementById("decimals").value;
+   var buttonValue = e.target.value;
 
    switch(buttonValue){
       case "del":
-         calcValue.value = "";
+         calcValue = "";
          break;
 
       case "bksp":
-         calcValue.value = eraseChar(calcValue);
+         calcValue = eraseChar(calcValue);
          break;
 
       case "enter":
-         calcValue.value = " = " + evalEq(calcValue, calcDecimal) + "\n";
+         calcValue += " = " + evalEq(calcValue, calcDecimal) + "\n";
          break;
 
       case "prev":
-         calcValue.value
+         calcValue += lastEq(calcValue);
+         break;
 
+         default:
+            calcValue = calcValue + buttonValue;
+            break;
    }
+
+   document.getElementById("calcWindow").value = calcValue;
+   document.getElementById("calcWindow").focus();
 }
 
+function calcKeys(e){
+   var calcValue = document.getElementById("calcWindow").value; 
+   var calcDecimal = document.getElementById("decimals").value;
+
+   switch(e.key){
+      case "delete":
+         calcValue = "";
+         break;
+
+      case "enter":
+         calcValue += " = " + evalEq(calcValue, calcDecimal);
+         break;
+
+      case "ArrowUp":
+         calcValue += lastEq(calcWindow)
+         e.preventDefault()
+         break;
+   }
+   document.getElementById("calcWindow").value = calcValue;
+}
 
 
 /* ===================================================================== */
