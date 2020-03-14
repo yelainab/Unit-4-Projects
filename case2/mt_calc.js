@@ -42,6 +42,7 @@ function init(){
    document.getElementById("calcWindow").addEventListener('keydown', calcKeys);
 }
 
+// affects the calculator when the calculator buttons are pressed 
 function buttonClick(e){
    var calcValue = document.getElementById("calcWindow").value; 
    var calcDecimal = document.getElementById("decimals").value;
@@ -53,7 +54,7 @@ function buttonClick(e){
          break;
 
       case "bksp":
-         calcValue = eraseChar(calcValue);
+         calcValue += eraseChar(calcValue);
          break;
 
       case "enter":
@@ -65,7 +66,7 @@ function buttonClick(e){
          break;
 
          default:
-            calcValue = calcValue + buttonValue;
+            calcValue += calcValue + buttonValue;
             break;
    }
 
@@ -73,6 +74,7 @@ function buttonClick(e){
    document.getElementById("calcWindow").focus();
 }
 
+// affects the calculator when keys are pressed 
 function calcKeys(e){
    var calcValue = document.getElementById("calcWindow").value; 
    var calcDecimal = document.getElementById("decimals").value;
@@ -87,7 +89,7 @@ function calcKeys(e){
          break;
 
       case "ArrowUp":
-         calcValue += lastEq(calcWindow)
+         calcValue += lastEq(calcWindow);
          e.preventDefault()
          break;
    }

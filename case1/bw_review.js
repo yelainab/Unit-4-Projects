@@ -45,6 +45,7 @@ function init(){
    document.getElementById("commentField").addEventListener("keyup", updateCount);
 }
 
+// changes the stars to brown when turned on
 function lightStars(e){
    var starNumber = e.target.alt;
    var stars = document.querySelectorAll("span#stars img");
@@ -66,6 +67,7 @@ function lightStars(e){
    );
 }
 
+// changes the stars to white when turned off
 function turnOffStars(){
    var stars = document.querySelectorAll("span#stars img");
    for(var i = 0; i < stars.length; i++){
@@ -74,6 +76,7 @@ function turnOffStars(){
    document.getElementById("rating").value = "";
 }
 
+// sets a character limit on the review box
 function updateCount(){
    var commentText = document.getElementById("comment").value;
    var charCount = countCharacters(commentText);
